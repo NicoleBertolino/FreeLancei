@@ -1,6 +1,6 @@
 import { View, Text, FlatList, Image, StyleSheet } from "react-native";
 import { useState, useEffect } from "react";
-import fetchCandidates from "../hooks/fetchCandidates";
+import fetchCandidates from "../../../hooks/fetchCandidates";
 
 const CandidatesScreen = () => {
     const {candidates, loading, error} = fetchCandidates("https://randomuser.me/api/?inc=id,name,phone,picture&nat=us&results=30");
