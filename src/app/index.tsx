@@ -1,11 +1,12 @@
 import { Text, View, SafeAreaView, StyleSheet } from "react-native";
 import CandidatesScreen from "./screens/company/CandidatesScreen";
 import SignIn from "./screens/SignIn";
+import SignUpCandidate from "./screens/candidate/SignUpCandidate";
 
 function Index() {
   return (
     <SafeAreaView style={styles.root}>
-      <SignIn/>
+      <SignUpCandidate/>
     </SafeAreaView>
   );
 }

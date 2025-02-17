@@ -4,9 +4,9 @@ import Logo from "@/src/assets/images/freelancei-logo.png";
 import CustomInput from "@/src/components/CostumInput";
 import CustomButton from '@/src/components/CustomButton';
 
-const CompanyLoginScreen = () => {
-    const [username, setUsername] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
+const SignIn = () => {
+    const [username, setUsername] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
 
     const onSignInPressed = () => {
       console.warn("Sign In Pressed");
@@ -46,4 +46,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default CompanyLoginScreen;
+export default SignIn;
