@@ -1,20 +1,17 @@
-import { Text, View, SafeAreaView, StyleSheet } from "react-native";
-import CandidatesScreen from "./screens/company/CandidatesScreen";
-import SignIn from "./screens/SignIn";
-import SignUpCandidate from "./screens/candidate/SignUpCandidate";
+import { Link } from "expo-router";
+import { SafeAreaView } from "react-native";
 
-function Index() {
-  return (
-    <SafeAreaView style={styles.root}>
-      <SignUpCandidate/>
-    </SafeAreaView>
-  );
-}
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  }
-});
+const Index = () => {
+    return (
+        <SafeAreaView
+        style={{
+            flex: 1,
+            alignItems: "center",
+            justifyContent: "center"
+        }}>
+            <Link href="/auth/SignIn">Go To Sign In</Link>
+        </SafeAreaView>
+    );
+};
 
 export default Index;
