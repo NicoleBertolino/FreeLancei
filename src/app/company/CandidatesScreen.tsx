@@ -1,8 +1,8 @@
-import { View, Text, FlatList, Image, StyleSheet, SafeAreaView } from "react-native";
-import fetchCandidates from "../../hooks/useFetchCandidates";
+import { View, Text, FlatList, Image, StyleSheet, SafeAreaView, TouchableOpacity } from "react-native";
+import useRequireCandidates from "../../hooks/useRequireCandidates";
 
 const CandidatesScreen = () => {
-    const {candidates, loading, error} = fetchCandidates("https://randomuser.me/api/?inc=id,name,phone,picture&nat=us&results=30");
+    const {candidates, loading, error} = useRequireCandidates();
 
     if(loading)
       return <Text style={styles.loadingText}>Loading...</Text>;
@@ -12,24 +12,24 @@ const CandidatesScreen = () => {
 
     function renderCandidate(candidate:any) {
       return (
-        <View style={styles.itemContainer}>
+        <TouchableOpacity style={styles.itemContainer}>
           <Image source={{uri: candidate.picture.large}} style={styles.avatar}/>
           <View style={styles.infoContainer}>
             <Text style={styles.name}>{`${candidate.name.first} ${candidate.name.last}`}</Text>
             <Text style={styles.phone}>{candidate.phone}</Text>
           </View>
-        </View>
+        </TouchableOpacity>
       );
     }
 
     return (
-      <View>
+      <SafeAreaView>
         <FlatList
           keyExtractor={(item:any) => item.id.name + item.id.value}
           data={candidates}
           renderItem={({item}:any) => renderCandidate(item)}
         />
-      </View>
+      </SafeAreaView>
     )
 }
 
