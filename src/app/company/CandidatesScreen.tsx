@@ -1,5 +1,4 @@
-import { View, Text, FlatList, Image, StyleSheet } from "react-native";
-import { useState, useEffect } from "react";
+import { View, Text, FlatList, Image, StyleSheet, SafeAreaView } from "react-native";
 import fetchCandidates from "../../hooks/useFetchCandidates";
 
 const CandidatesScreen = () => {

@@ -14,6 +14,7 @@ const Index = () => {
             <Link href="/auth/SignIn">Go To Log In Page</Link>
             <Link href="/candidate/ProfileScreen">Go To Provider Profile</Link>
             <Link href="/company/CandidatesScreen">Go To Candidates Screen</Link>
+            <Link href="/company/ProfileScreen">Go To Company Screen</Link>
         </SafeAreaView>
     );
 };
