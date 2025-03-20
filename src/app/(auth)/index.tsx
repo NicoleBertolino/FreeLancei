@@ -18,7 +18,7 @@ const SignIn = () => {
     }
 
     const onSignUpPressed = () => {
-      router.push("/(company)/profile");
+      router.push("/(company)");
     }
     
     return (

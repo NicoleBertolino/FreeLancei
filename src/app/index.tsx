@@ -7,7 +7,7 @@ const Index = () => {
 
     useEffect(() => {
         if (navigationState?.key) {
-            router.replace("/(auth)/login");
+            router.replace("/(auth)");
         }
     }, [navigationState?.key]);
 
