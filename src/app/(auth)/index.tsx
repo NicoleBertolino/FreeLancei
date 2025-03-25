@@ -21,7 +21,8 @@ const SignIn = () => {
       // Just about to connect things
       try {
         const response = await signInWithEmailAndPassword(auth, email, password);
-        console.log(response);
+        const user_credentials = response.user;
+        console.log(user_credentials);
       } catch(error: any) {
         console.log(error);
         alert("Sign In failed:" + error.message);
