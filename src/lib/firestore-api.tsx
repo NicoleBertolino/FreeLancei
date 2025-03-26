@@ -19,4 +19,14 @@ async function getDocument(collection_name: string, document_name: string) {
     return await getDoc(document);
 }
 
-export { createDocument, getDocumentReference, getDocument, addNewDocument };
+async function getUser(collection_name: string, document_name: string) {
+    const document_snapshot = await getDocument(collection_name, document_name);
+
+    if (!document_snapshot.exists()) {
+        return undefined;
+    }
+
+    return document_snapshot.data();
+}
+
+export { createDocument, getDocumentReference, getDocument, addNewDocument, getUser };
