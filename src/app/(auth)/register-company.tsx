@@ -24,7 +24,7 @@ type CompanyLoginInfo = {
   uid: string
 }
 
-const SignUpCandidate = () => {
+const SignUpCompany = () => {
     const [username, setUsername] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -115,7 +115,7 @@ const SignUpCandidate = () => {
           ) :
           (
             <ScrollView contentContainerStyle={styles.root} showsHorizontalScrollIndicator={false}>
-              <Text style={styles.title}>Create an account</Text>
+              <Text style={styles.title}>Crie uma conta</Text>
               <View style={styles.formItem}>
                   <Label name="Usuário" />
                   <CustomInput value={username} onChange={setUsername} placeHolder="John Hooker" />
@@ -179,4 +179,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default SignUpCandidate;
+export default SignUpCompany;
