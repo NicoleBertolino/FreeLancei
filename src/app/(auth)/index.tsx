@@ -5,7 +5,9 @@ import CustomButton from '@/src/components/CustomButton';
 import { useRouter } from 'expo-router';
 import { FIREBASE_AUTH } from '@/src/lib/firebase-config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { getUser } from '@/src/lib/firestore-api';
 import { COLORS } from '@/src/constants/colors';
+import { COMPANNY_COLLECTION, FREELANCER_COLLECTION } from '@/src/constants/conninfo';
 
 const SignIn = () => {
     const [email, setEmail] = useState<string>('');
@@ -22,9 +24,24 @@ const SignIn = () => {
       try {
         const response = await signInWithEmailAndPassword(auth, email, password);
         const user_credentials = response.user;
-        console.log(user_credentials);
+        let user;
+        
+        user = await getUser(COMPANNY_COLLECTION, user_credentials.uid);
+
+        if(user == undefined) {
+          user = await getUser(FREELANCER_COLLECTION, user_credentials.uid);
+
+          router.replace({
+            pathname: "../(company)",
+            params: {...user}
+          });
+        } else {
+          router.replace({
+            pathname: "../(company)",
+            params: user
+          });
+        }
       } catch(error: any) {
-        console.log(error);
         alert("Sign In failed:" + error.message);
       } finally {
         setLoading(false);
@@ -36,7 +53,7 @@ const SignIn = () => {
     }
 
     const goToRegisterPage = async () => {
-      router.push("/register");
+      router.push("/register-option");
     }
     
     return (
@@ -72,7 +89,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     padding: 20,
-    backgroundColor: "#F9FBFC"
+    backgroundColor: COLORS.bgMainColor
   },
   logo: {
     width: 100,
